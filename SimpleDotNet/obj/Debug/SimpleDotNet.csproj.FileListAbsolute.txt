@@ -1,0 +1,12 @@
+c:\users\afzaa\Documents\Visual Studio 2017\Projects\SimpleDotNet\SimpleDotNet\bin\Debug\SimpleDotNet.exe.config
+c:\users\afzaa\Documents\Visual Studio 2017\Projects\SimpleDotNet\SimpleDotNet\bin\Debug\SimpleDotNet.exe
+c:\users\afzaa\Documents\Visual Studio 2017\Projects\SimpleDotNet\SimpleDotNet\bin\Debug\SimpleDotNet.pdb
+c:\users\afzaa\Documents\Visual Studio 2017\Projects\SimpleDotNet\SimpleDotNet\bin\Debug\System.Threading.Tasks.Extensions.dll
+c:\users\afzaa\Documents\Visual Studio 2017\Projects\SimpleDotNet\SimpleDotNet\bin\Debug\System.Threading.Tasks.Extensions.xml
+c:\users\afzaa\Documents\Visual Studio 2017\Projects\SimpleDotNet\SimpleDotNet\obj\Debug\SimpleDotNet.csprojResolveAssemblyReference.cache
+c:\users\afzaa\Documents\Visual Studio 2017\Projects\SimpleDotNet\SimpleDotNet\obj\Debug\SimpleDotNet.exe
+c:\users\afzaa\Documents\Visual Studio 2017\Projects\SimpleDotNet\SimpleDotNet\obj\Debug\SimpleDotNet.pdb
+c:\users\afzaa\Documents\Visual Studio 2017\Projects\SimpleDotNet\SimpleDotNet\bin\Debug\System.ValueTuple.dll
+C:\Users\afzaa\Documents\Visual Studio 2017\Projects\SimpleDotNet\SimpleDotNet\bin\Debug\Microsoft.Cognitive.LUIS.dll
+C:\Users\afzaa\Documents\Visual Studio 2017\Projects\SimpleDotNet\SimpleDotNet\bin\Debug\Newtonsoft.Json.dll
+C:\Users\afzaa\Documents\Visual Studio 2017\Projects\SimpleDotNet\SimpleDotNet\bin\Debug\Newtonsoft.Json.xml
