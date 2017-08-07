@@ -14,22 +14,30 @@ namespace SimpleDotNet
         {
             ISmtpClient client;
 
-            if(type == ClientType.Gmail)
+            if (type == ClientType.Gmail)
             {
                 client = new GmailClient(credentials, withSsl);
-            } else if (type == ClientType.Office365)
+            }
+            else if (type == ClientType.Office365)
             {
                 client = new Office365Client(credentials, withSsl);
-            } else if (type == ClientType.Outlook)
+            }
+            else if (type == ClientType.Outlook)
             {
                 client = new OutlookClient(credentials, withSsl);
-            } else if (type == ClientType.Yahoo)
+            }
+            else if (type == ClientType.Yahoo)
             {
                 client = new YahooClient(credentials, withSsl);
-            } else
+            }
+            else if (type == ClientType.SendGrid)
+            {
+                client = new SendGridClient(credentials, withSsl);
+            }
+            else
             {
                 // Custom
-                if(host == "")
+                if (host == "")
                 {
                     throw new Exception("Host name is required for a custom SMTP client.");
                 }
@@ -38,7 +46,7 @@ namespace SimpleDotNet
             return client;
         }
 
-        public enum ClientType { Gmail, Outlook, Yahoo, Office365, Custom }
+        public enum ClientType { Gmail, Outlook, Yahoo, Office365, SendGrid, Custom }
     }
 
     interface ISmtpClient : IDisposable
@@ -171,6 +179,42 @@ namespace SimpleDotNet
         public Office365Client(NetworkCredential credentials, bool ssl)
         {
             Credentials = credentials; 
+            Port = 25;
+            EnforceSsl = ssl;
+            if (ssl)
+            {
+                Port = 587;
+            }
+
+            Client = new SmtpClient(Host, Port);
+        }
+
+        async Task ISmtpClient.Send(MailMessage message)
+        {
+            Client.EnableSsl = EnforceSsl;
+            Client.Credentials = Credentials;
+
+            // Send
+            await Client.SendMailAsync(message);
+        }
+
+        public void Dispose()
+        {
+            Client.Dispose();
+        }
+    }
+
+    public class SendGridClient : ISmtpClient
+    {
+        public string Host { get => "smtp.sendgrid.net"; }
+        public int Port { get; set; }
+        public bool EnforceSsl { get; set; }
+        public NetworkCredential Credentials { get; set; }
+        public SmtpClient Client { get; set; }
+
+        public SendGridClient(NetworkCredential credentials, bool ssl) 
+        {
+            Credentials = credentials;
             Port = 25;
             EnforceSsl = ssl;
             if (ssl)

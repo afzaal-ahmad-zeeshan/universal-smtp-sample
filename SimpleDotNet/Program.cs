@@ -14,7 +14,7 @@ namespace SimpleDotNet
         static void Main(string[] args)
         {
             var credentials = new System.Net.NetworkCredential("<username>", "<password>");
-            using (var client = SmtpClientFactory.GetClient(SmtpClientFactory.ClientType.Office365, credentials, true))
+            using (var client = SmtpClientFactory.GetClient(SmtpClientFactory.ClientType.SendGrid, credentials, true))
             {
                 var message = new MailMessage("John Doe <john.doe@example.com>", "Johanna Doe <johanna.doe@example.com>", "Special Subject", "The body of email goes here.");
 
